@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainy Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(brain\ calc.jpg); /* Brain image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
+        }
+
+        .calculator {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            background-color: #ffffff;
+            width: 320px;
+            position: relative; /* Needed for overlay */
+            z-index: 1; /* Ensure calculator is above overlay */
+        }
+
+        .display {
+            width: 97%;
+            height: 60px;
+            text-align: right;
+            font-size: 32px;
+            padding: 10px;
+            border: none;
+            background-color: #6c63ff; /* Aesthetic color */
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .btn {
+            padding: 20px;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn.operator {
+            background-color: #ff6b6b; /* Aesthetic operator color */
+            color: white;
+        }
+
+        .btn.operator:hover {
+            background-color: #ff3d3d; /* Darker hover for operator */
+        }
+
+        .btn.equal {
+            background-color: #4caf50; /* Green for equal */
+            color: white;
+        }
+
+        .btn.equal:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .btn.clear {
+            background-color: #f44336; /* Red for clear */
+            color: white;
+        }
+
+        .btn.clear:hover {
+            background-color: #d32f2f; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button class="btn clear" onclick="clearDisplay()">C</button>
+            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+            <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+            <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn equal" onclick="calculateResult()">=</button>
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn" onclick="appendToDisplay('0')">0</button>
+        </div>
+    </div>
+    <script>
+        let currentInput = "";
+
+        function appendToDisplay(value) {
+            currentInput += value;
+            document.getElementById('display').value = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = "";
+            document.getElementById('display').value = "";
+        }
+
+        function calculateResult() {
+            try {
+                const result = eval(currentInput);
+                document.getElementById('display').value = result;
+                currentInput = result.toString(); // Store result for further calculations
+            } catch (error) {
+                document.getElementById('display').value = "Error";
+                currentInput = "";
+            }
+        }
+    </script>
+</body>
+</html>
+

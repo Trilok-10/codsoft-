@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilok S - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #e2e2e2, #ffffff); /* Gradient background */
+        }
+
+        header {
+            background-color: #4CAF50; /* Header background */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 1.5em;
+            color: #f0f0f0;
+            margin: 5px 0 20px;
+        }
+
+        nav {
+            background-color: #333; /* Navigation bar background */
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049; /* Hover effect */
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Center content vertically */
+        }
+
+        #home {
+            background-color: #f9c74f; /* Yellow background for Home section */
+            color: #333;
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* Center text */
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+        }
+
+        #home h2 {
+            font-weight: 500; /* Medium weight */
+            font-size: 3em; /* Larger font size */
+        }
+
+        #home p {
+            font-weight: 300; /* Light weight */
+            font-size: 1.5em; /* Slightly larger font size */
+        }
+
+        #about {
+            background-color: #f9f9f9; /* Light gray background for About section */
+        }
+
+        #about img {
+            width: 150px; /* Set a smaller width */
+            height: 250px; /* Increase height for portrait view */
+            object-fit: cover; /* Crop the image to fit */
+            margin-bottom: 20px; /* Adjust margin for better spacing */
+        }
+
+        #skills {
+            background-color: #d0e1f9; /* Soft blue background for Skills section */
+        }
+
+        #projects {
+            background-color: #343a40; /* Dark gray background for Projects section */
+            color: #f8f9fa; /* Light text color */
+        }
+
+        #projects h2 {
+            color: #f8f9fa; /* Light color for section heading */
+        }
+
+        #resume {
+            background-color: #cce5ff; /* Soft blue background for Resume section */
+            color: #333;
+        }
+
+        #contact {
+            background-color: #d4edda; /* Soft green background for Contact section */
+            color: #333;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            background-color: #495057; /* Darker card background for projects */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trilok S</h1>
+        <h2>This is a simple portfolio which includes skills, projects, resume, and contacts</h2>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome, I am Trilok</h2>
+        <p>This is a simple portfolio of mine, and feel free to explore it.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="trilok.jpeg" alt="Your Name" />
+        <p>I am a passionate web developer with experience in HTML and CSS and I have a keen interest in exploring more about this domain. I am currently pursuing my B TECH degree in computer science and engineering in SRM Institute. I have also learnt about python and java</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>SQL</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Sales Data Analysis for Amazon</h3>
+            <img src="Sales pic.jpg" alt="Project 1" />
+            <p>This was a project that I made using Power BI and used SVM model; here is the project dashboard about it.</p>
+        </div>
+        <div class="project">
+            <h3>Project Title 2</h3>
+            <img src="Dtm.png" alt="Project 2" />
+            <p>This is a website about Data Privacy. This was a small project that I did to improve my web development skills.</p>
+        </div>
+        <!-- Add more projects as needed -->
+    </section>
+
+    <section id="resume">
+        <h2>Resume</h2>
+        <a href="T Resume.pdf" download>Download my Resume</a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:trilokbalaji04@gmail.com">trilokbalaji04@gmail.com</a></p>
+        <p>Phone: +91 8778075696</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">www.linkedin.com/in/trilok-srinivasan-27364b31b</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Trilok S. All rights reserved.</p>
+        <p><a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </footer>
+</body>
+</html>
+

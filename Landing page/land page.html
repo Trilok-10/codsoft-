@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Food Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Carrington';
+            src: url('path-to-your-font/Carrington.woff2') format('woff2'); /* Update the URL to your font file */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #f0f0f0; /* Light background */
+        }
+
+        header {
+            background-color: #007BFF; /* Header background */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative; /* For positioning the GIF */
+        }
+
+        header img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px; /* Adjust the size of the GIF */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: 'Carrington', serif; /* Use Carrington font for the title */
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px; /* Center section */
+            background: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative; /* For positioning */
+            z-index: 1; /* Layering */
+        }
+
+        section h2 {
+            text-align: center;
+            color: #000; /* Dark color */
+            font-size: 2.5em; /* Increased font size */
+            font-weight: bold; /* Bold text */
+        }
+
+        section p {
+            text-align: justify;
+            color: #000; /* Black color */
+            font-size: 1.2em; /* Increased font size */
+            font-weight: bold; /* Bold text */
+        }
+
+        #home {
+            background-image: url('fries.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px; /* More padding for aesthetics */
+        }
+
+        #services {
+            display: none; /* Hide by default */
+            background: linear-gradient(135deg, #fff4e6, #ffe0b2); /* Gradient background for services */
+            border-radius: 8px;
+        }
+
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .food-item img {
+            max-width: 100px; /* Set image width */
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        /* Chatbox styles */
+        .chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #ffcccc; /* Light red background */
+            border: 1px solid #ff0000; /* Darker red border */
+            border-radius: 8px;
+            display: none; /* Hide by default */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .chatbox-header {
+            background: #ff0000; /* Dark red */
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chatbox-body {
+            padding: 10px;
+        }
+
+        .chatbox-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chatbox-button {
+            background: #ff0000; /* Dark red */
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .chatbox-button:hover {
+            background: #cc0000; /* Darker red */
+        }
+
+        /* Message box styles */
+        .message-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message-box textarea {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            resize: none; /* Disable resizing */
+        }
+
+        .message-box button {
+            background: #007BFF; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .message-box button:hover {
+            background: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        function toggleServices() {
+            const servicesSection = document.getElementById('services');
+            if (servicesSection.style.display === 'none' || servicesSection.style.display === '') {
+                servicesSection.style.display = 'block'; // Show services
+            } else {
+                servicesSection.style.display = 'none'; // Hide services
+            }
+        }
+
+        function toggleChatbox() {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Potato Food Service</h1>
+        <img src="potato gif.gif" alt="Potato GIF"> <!-- Replace with your GIF path -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleServices()">Our Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to Potato Food Service, where we specialize in delicious potato-based dishes that will satisfy your cravings. Explore our menu and discover your new favorite meal!</p>
+    </section>
+
+    <section id="services">
+        <h2>Potato-Based Dishes</h2>
+        <div class="food-item">
+            <img src="fries.jpg" alt="Potato Fries">
+            <div>
+                <p>Potato Fries - ₹120</p>
+            </div>
+        </div>
+        <div class="food-item">
+            <img src="mashed potatoes.jpg" alt="Mashed Potatoes">
+            <div>
+                <p>Mashed Potatoes - ₹70</p>
+            </div>
+        </div>
+        <div class="food-item">
+            <img src="potato salad.jpg" alt="Potato Salad">
+            <div>
+                <p>Potato Salad - ₹100</p>
+            </div>
+        </div>
+        <div class="food-item">
+            <img src="chips.jpg" alt="Potato Chips">
+            <div>
+                <p>Potato Chips - ₹60</p>
+            </div>
+        </div>
+        <div class="food-item">
+            <img src="creamy soup.jpg" alt="Potato Soup">
+            <div>
+                <p>Potato Soup - ₹75</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feedback, or would like to place an order, feel free to reach out through our contact form or email us directly.</p>
+        <div class="message-box">
+            <textarea placeholder="Type your message here..."></textarea>
+            <button>Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Potato Food Service. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Chatbox -->
+    <button onclick="toggleChatbox()" class="chatbox-button">Chat with Us</button>
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">Contact Us</div>
+        <div class="chatbox-body">
+            <p>Email: potatofoodservice@gmail.com</p>
+            <p>Phone: +91 8778963452</p>
+        </div>
+        <div class="chatbox-footer">
+            <button class="chatbox-button" onclick="toggleChatbox()">Close</button>
+        </div>
+    </div>
+</body>
+</html>
